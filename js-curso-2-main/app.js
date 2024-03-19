@@ -1,5 +1,5 @@
 let titulo = document.querySelector('h1');
-titulo.innerHTML= 'demuestra';
+titulo.innerHTML= 'Calcular promedio';
 
 function mensajeConsola() {
     console.log('Boton Console fue clickeado')
