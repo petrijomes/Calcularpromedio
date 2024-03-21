@@ -1,42 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="reset.css">
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
         <title>Calcular Promedio</title>
     </head>
     <body>
-        <header>
+        <header class="arriba">
             <h1></h1>
         </header>
         <main class="container">
                 
             <section>
                 <div class="sectionprincipal">
-                    <label id="labelingreso" for="ingresarnotas"><h2>ingrese la cantidad de notas</h2>
-                    </label><select id="ingresarnotas" oninput="generar()">
+                    <span id="labelingreso" for="ingresarnotas">Seleccione cantidad de notas
+                    </span><select id="ingresarnotas" oninput="generar()">
                         <option class="itemsop" value="2" selected>2</option>
                         <option class="itemsop" value="3">3</option>
                         <option class="itemsop" value="4">4</option>
-                        <option class="itemsop" value="5">5</option>
-                        <option class="itemsop" value="6">6</option>
+                        <option class="itemsop" value="5">5</option>                        <option class="itemsop" value="6">6</option>
                         <option class="itemsop" value="7">7</option>
                         <option class="itemsop" value="8">8</option>
                         <option class="itemsop" value="9">9</option>
                     </select>
                 </div>
-            </section>
                 
-            <div id="inputContainer">
-            </div>
-            <div id="promedioContainer">
-            </div>
-            <button onclick="agregarNuevoInput()" class="boton">+</button>
-
+                <div class="sectionsecundaria">    
+                    <div id="inputContainer">
+                    </div>
+                    <div id="promedioContainer">
+                    </div>
+                    <button onclick="agregarNuevoInput()" class="boton">+</button>
+                </div>
+            </section>    
         </main>
-
+        <footer>
+        </footer>
         <script src="app.js"></script>
     </body>
 </html>
