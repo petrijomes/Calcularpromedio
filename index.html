@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Calcular Promedio</title>
+    </head>
+    <body>
+        <header>
+            <h1></h1>
+        </header>
+        <main class="container">
+                
+            <section>
+                <div class="sectionprincipal">
+                    <label id="labelingreso" for="ingresarnotas"><h2>ingrese la cantidad de notas</h2>
+                    </label><select id="ingresarnotas" oninput="generar()">
+                        <option class="itemsop" value="2" selected>2</option>
+                        <option class="itemsop" value="3">3</option>
+                        <option class="itemsop" value="4">4</option>
+                        <option class="itemsop" value="5">5</option>
+                        <option class="itemsop" value="6">6</option>
+                        <option class="itemsop" value="7">7</option>
+                        <option class="itemsop" value="8">8</option>
+                        <option class="itemsop" value="9">9</option>
+                    </select>
+                </div>
+            </section>
+                
+            <div id="inputContainer">
+            </div>
+            <div id="promedioContainer">
+            </div>
+            <button onclick="agregarNuevoInput()" class="boton">+</button>
+
+        </main>
+
+        <script src="app.js"></script>
+    </body>
+</html>
