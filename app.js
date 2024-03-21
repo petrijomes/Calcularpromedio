@@ -6,25 +6,25 @@ document.addEventListener("DOMContentLoaded", function() {
 let titulo = document.querySelector('h1');
 titulo.innerHTML= 'Calcular promedio';
 
-function mensajeConsola() {
-    console.log('Boton Console fue clickeado')
+// function mensajeConsola() {
+//     console.log('Boton Console fue clickeado')
     
-}
+// }
 
-function mensajePrompt() {
-    var ciudad= prompt("ingresa el nombre de una ciudad en chile:");
-    alert(`estuve en ${ciudad} y me acordé de ti`);
+// function mensajePrompt() {
+//     var ciudad= prompt("ingresa el nombre de una ciudad en chile:");
+//     alert(`estuve en ${ciudad} y me acordé de ti`);
     
-}
-function mensajeAlerta() {
-    alert("Yo amo JS");
-}
+// }
+// function mensajeAlerta() {
+//     alert("Yo amo JS");
+// }
 
-function mensajeSuma() {
-    var num1= prompt("ingresa el primer numero:");
-    var num2= prompt("ingresa el segundo numero:");
-    alert(`la suma es: ${parseInt(num1)+parseInt(num2)}`)
-}
+// function mensajeSuma() {
+//     var num1= prompt("ingresa el primer numero:");
+//     var num2= prompt("ingresa el segundo numero:");
+//     alert(`la suma es: ${parseInt(num1)+parseInt(num2)}`)
+// }
 function agregarNuevoInput() {
     var inputContainer = document.getElementById("inputContainer");
     var cantidadInputs = inputContainer.querySelectorAll("input").length + 1;

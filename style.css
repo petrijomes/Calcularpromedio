@@ -52,6 +52,7 @@ h1{
   background: #f2f2f2;
   
 }
+
 .sectionprincipal select::-ms-expand {
   display: none;
 }
@@ -66,27 +67,28 @@ h1{
   text-align: center;
 }
 
+.seccionNotas{
+  text-align: center;
+}
 .sectionsecundaria{
-
+  display: inline-block;
   margin-top: 20px;
   text-align: center;
-
+  width: 400px;
+  background-color:#8C8C8C;
+  box-shadow: 10px 10px 30px 15px #000;
+  border-radius: 12px;
+  padding: 10px;
   
 }
 
 #inputContainer{
-  width: 400px;
-  background-color:#8C8C8C;
   color: #F2F2F2;
-  box-shadow: 10px 10px 30px 15px #000;
-  border-radius: 12px;
-  padding: 10px;
+  font-weight: bold;
   display: inline-block;
-
 }
 #promedioContainer{
   margin-top: 10px;
-  
 }
 
 .boton {
