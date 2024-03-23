@@ -28,15 +28,21 @@ titulo.innerHTML= 'Calcular promedio';
 function agregarNuevoInput() {
     var inputContainer = document.getElementById("inputContainer");
     var cantidadInputs = inputContainer.querySelectorAll("input").length + 1;
+    
     if (cantidadInputs<=9) {
             
-        var nuevaEtiqueta = generaretiqueta(cantidadInputs);
-        var nuevoInput = generarInputs(cantidadInputs);
+        var nuevaEtiqueta = generaretiqueta(1,cantidadInputs);
+        var NuevoInputNotas = generarInputs(1,cantidadInputs);
+        var NuevoInputPorcentaje= generarInputs(2,cantidadInputs);
+        var nuevaEtiquetaporcentaje= generaretiqueta(2,cantidadInputs)
         inputContainer.appendChild(nuevaEtiqueta);
-        inputContainer.appendChild(nuevoInput);
+        inputContainer.appendChild(NuevoInputNotas);
+        inputContainer.appendChild(NuevoInputPorcentaje);
+        inputContainer.appendChild(nuevaEtiquetaporcentaje);
+        
         inputContainer.appendChild(document.createElement("br"));
         
-        nuevoInput.addEventListener("input", calcularPromedio);
+        NuevoInputNotas.addEventListener("input", calcularPromedio);
     }
     else{
         alert("No se pueden agregar mas de 9 notas!");
@@ -49,33 +55,55 @@ function generar(){
     var cantidadNotas = document.getElementById("ingresarnotas").value;
     var inputContainer = document.getElementById("inputContainer");
     inputContainer.innerHTML = ""; // Limpiar el contenido actual del contenedor
-    
+    var notas=1;
+    var prome=2;
     for (var i = 1; i <= cantidadNotas; i++) {
         
-            var nuevaEtiqueta = generaretiqueta(i);
-            var nuevoInput = generarInputs(i);
+            var nuevaEtiqueta = generaretiqueta(notas,i);
+            var NuevoInputNotas = generarInputs(notas,i);
+            var NuevoInputPorcentaje= generarInputs(prome,i);
+            var nuevaEtiquetaporcentaje= generaretiqueta(prome,i);
             inputContainer.appendChild(nuevaEtiqueta);
-            inputContainer.appendChild(nuevoInput);
+            inputContainer.appendChild(NuevoInputNotas);
+            inputContainer.appendChild(NuevoInputPorcentaje);
+            inputContainer.appendChild(nuevaEtiquetaporcentaje);
             inputContainer.appendChild(document.createElement("br"));
     
-            nuevoInput.addEventListener("input", calcularPromedio);            
+            NuevoInputNotas.addEventListener("input", calcularPromedio);            
       
 
     }
 
 }
 
-function generaretiqueta(numNota){
-    var etiqueta= document.createElement("label");
-    etiqueta.for= "nota" + numNota;
-    etiqueta.textContent= `Nota ${numNota}: `;
-    return etiqueta;
+function generaretiqueta(control,numNota){
+    if (control==1) {
+        var etiqueta= document.createElement("label");
+        etiqueta.for= "nota" + numNota;
+        etiqueta.textContent= `Nota ${numNota}: `;
+        return etiqueta;   
+    }
+    else{
+        var etiqueta= document.createElement("label");
+        etiqueta.textContent= "%";
+        return etiqueta;
+    }
+    
 }
-function generarInputs(numNota){
-    var ingreso= document.createElement("input");
-    ingreso.type="text";
-    ingreso.id= "nota"+numNota;
-    return ingreso;
+function generarInputs(control, numNota){
+    if (control==1) {
+        var ingreso= document.createElement("input");
+        ingreso.type="text";
+        ingreso.id= "nota"+numNota;
+        return ingreso;
+    }
+    else{
+        var ingreso= document.createElement("input");
+        ingreso.type="text";
+        ingreso.className="InputPromedio";
+        return ingreso;
+    }
+    
 
 
 }
