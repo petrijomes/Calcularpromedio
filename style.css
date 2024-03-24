@@ -73,7 +73,6 @@ h1{
 .sectionsecundaria{
   display: inline-block;
   margin-top: 20px;
-  text-align: center;
   width: 400px;
   background-color:#8C8C8C;
   box-shadow: 10px 10px 30px 15px #000;
@@ -84,10 +83,31 @@ h1{
 
 #inputContainer{
   color: #F2F2F2;
+  width: 400px;
   font-weight: bold;
+  text-align: left;
+  
   display: inline-block;
 }
 
+.etiquetainputs{
+  width: 15%; 
+  display: inline-block; 
+  text-align: left;
+  
+  vertical-align: middle; 
+}
+.cuadroinputsnotas{
+  width: 50%;
+  outline: none;
+  
+}
+.InputPromedio{
+
+  width: 20%;
+  outline: none;
+  margin-left: 30px;
+}
 #promedioContainer{
   margin-top: 10px;
 }

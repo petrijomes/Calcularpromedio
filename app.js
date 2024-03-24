@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
     generar(); // Llama a la función generar() una vez que la página haya cargado completamente.
+     // Obtener el primer input y centrar la página en él
+     var primerInput = document.querySelector('.cuadroinputsnotas');
+     if (primerInput) {
+         primerInput.focus();
+     }
 });
 
 
@@ -27,7 +32,7 @@ titulo.innerHTML= 'Calcular promedio';
 // }
 function agregarNuevoInput() {
     var inputContainer = document.getElementById("inputContainer");
-    var cantidadInputs = inputContainer.querySelectorAll("input").length + 1;
+    var cantidadInputs = inputContainer.getElementsByClassName("cuadroinputsnotas").length + 1;
     
     if (cantidadInputs<=9) {
             
@@ -79,12 +84,17 @@ function generar(){
 function generaretiqueta(control,numNota){
     if (control==1) {
         var etiqueta= document.createElement("label");
-        etiqueta.for= "nota" + numNota;
+        etiqueta.for= "nota"+numNota;
+        etiqueta.className="etiquetainputs";
         etiqueta.textContent= `Nota ${numNota}: `;
+        
+        
         return etiqueta;   
     }
     else{
         var etiqueta= document.createElement("label");
+        etiqueta.for= "promedio"+numNota;
+        etiqueta.className="etiquetanotas";
         etiqueta.textContent= "%";
         return etiqueta;
     }
@@ -95,11 +105,13 @@ function generarInputs(control, numNota){
         var ingreso= document.createElement("input");
         ingreso.type="text";
         ingreso.id= "nota"+numNota;
+        ingreso.className="cuadroinputsnotas"
         return ingreso;
     }
     else{
         var ingreso= document.createElement("input");
         ingreso.type="text";
+        ingreso.id= "promedio"+numNota;
         ingreso.className="InputPromedio";
         return ingreso;
     }
