@@ -30,6 +30,15 @@ titulo.innerHTML= 'Calcular promedio';
 //     var num2= prompt("ingresa el segundo numero:");
 //     alert(`la suma es: ${parseInt(num1)+parseInt(num2)}`)
 // }
+
+function limpiarPromedio() {
+    var etiquetaContainer = document.getElementById("promedioContainer");
+    etiquetaContainer.innerHTML = "";
+}
+
+
+
+
 function agregarNuevoInput() {
     var inputContainer = document.getElementById("inputContainer");
     var cantidadInputs = inputContainer.getElementsByClassName("cuadroinputsnotas").length + 1;
@@ -105,13 +114,15 @@ function generarInputs(control, numNota){
         var ingreso= document.createElement("input");
         ingreso.type="text";
         ingreso.id= "nota"+numNota;
+        ingreso.onchange = calcularPromedio;
         ingreso.className="cuadroinputsnotas"
         return ingreso;
     }
     else{
         var ingreso= document.createElement("input");
         ingreso.type="text";
-        ingreso.id= "promedio"+numNota;
+        
+        ingreso.oninput = calcularPromedio;
         ingreso.className="InputPromedio";
         return ingreso;
     }
@@ -120,33 +131,56 @@ function generarInputs(control, numNota){
 
 }
 
+var alertaMostrada = false;
 function calcularPromedio() {
     var inputs = document.querySelectorAll('.cuadroinputsnotas');
-    var porcentajeInputs= document.querySelectorAll('.InputPromedio')
+    var porcentajeInputs = document.querySelectorAll('.InputPromedio');
     var totalPonderado = 0;
     var totalPorcentaje = 0;
-  
-    inputs.forEach(function(input, index) {
-        
-        if (totalPorcentaje<=100) {
-            var nota = parseFloat(input.value) || 0;
-            var porcentaje = parseFloat(porcentajeInputs[index].value) || 0;
 
-            totalPonderado += nota * (porcentaje / 100); // Calculamos el producto de la nota por el porcentaje (dividido por 100)
-            totalPorcentaje += porcentaje; // Sumams los porcentajes
-            
+    inputs.forEach(function(input, index) {
+        var nota = parseFloat(input.value) || 0;
+        var porcentaje = parseFloat(porcentajeInputs[index].value) || 0;
+
+        if (totalPorcentaje + porcentaje > 100) {
+            // Si la suma supera el 100%, eliminamos el último dígito del porcentaje
+            var porcentajeString = porcentajeInputs[index].value;
+            if (porcentajeString.length > 0) {
+                porcentajeInputs[index].value = porcentajeString.slice(0, -1);
+                porcentaje = parseFloat(porcentajeInputs[index].value) || 0;
+                
+                // Mostrar la alerta después de eliminar el último dígito
+                if (!alertaMostrada) {
+                    alert("Se eliminó el último dígito del porcentaje ingresado ya que supera el 100%");
+                    alertaMostrada = true;
+                }
+            }
         }
-        else{
-            alert("porcentaje mayor que 100")
-        }
-        
+
+        totalPonderado += nota * (porcentaje / 100);
+        totalPorcentaje += porcentaje;
     });
-  
+
+    if (totalPorcentaje > 100) {
+        if (!alertaMostrada) {
+            alert("El total de los porcentajes no puede exceder el 100%");
+            alertaMostrada = true;
+        }
+        return;
+    }
+
+    if (alertaMostrada) {
+        alertaMostrada = false; // Restablecer la bandera si el total de porcentajes es válido
+    }
+
     mostrarPromedio(totalPonderado.toFixed(2));
 }
 
-  
   function mostrarPromedio(promedio) {
     var promedioContainer = document.getElementById("promedioContainer");
+    if (promedio>49.6) {
+        promedioContainer.style.color = "green";
+        promedioContainer.textContent = `Promedio: ${promedio}`;
+    }
     promedioContainer.textContent = `Promedio: ${promedio}`;
   }
