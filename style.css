@@ -17,7 +17,7 @@ main {
 }
 
 h1{
-  padding-top: 10px;
+  padding-top: 60px;
   padding-bottom: 20px;
   color: black;
   
@@ -99,12 +99,13 @@ h1{
 }
 .cuadroinputsnotas{
   width: 50%;
+  border-radius: 5px;
   outline: none;
   
 }
 .InputPromedio{
-
   width: 20%;
+  border-radius: 5px;
   outline: none;
   margin-left: 30px;
 }

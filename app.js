@@ -121,19 +121,28 @@ function generarInputs(control, numNota){
 }
 
 function calcularPromedio() {
-    var inputs = document.querySelectorAll("#inputContainer input");
-    var total = 0;
-    var cantidadInputs = 0;
+    var inputs = document.querySelectorAll('.cuadroinputsnotas');
+    var porcentajeInputs= document.querySelectorAll('.InputPromedio')
+    var totalPonderado = 0;
+    var totalPorcentaje = 0;
   
-    inputs.forEach(function(input) {
-        if(input.value !== "") {
-            total += parseFloat(input.value) || 0;
-            cantidadInputs++;
+    inputs.forEach(function(input, index) {
+        
+        if (totalPorcentaje<=100) {
+            var nota = parseFloat(input.value) || 0;
+            var porcentaje = parseFloat(porcentajeInputs[index].value) || 0;
+
+            totalPonderado += nota * (porcentaje / 100); // Calculamos el producto de la nota por el porcentaje (dividido por 100)
+            totalPorcentaje += porcentaje; // Sumams los porcentajes
+            
         }
+        else{
+            alert("porcentaje mayor que 100")
+        }
+        
     });
   
-    var promedio = total / cantidadInputs || 0;
-    mostrarPromedio(promedio.toFixed(2));
+    mostrarPromedio(totalPonderado.toFixed(2));
 }
 
   
