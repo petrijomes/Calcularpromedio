@@ -1,21 +1,22 @@
 
 body{
-  height:940px;
+  background: linear-gradient(#f2f2f2, #262626);
+  
+  min-height: 100vh;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
+  margin: 0; /* Eliminar el margen predeterminado del cuerpo */
+  padding: 0; /* Eliminar el relleno predeterminado del cuerpo */
 }
 
 .arriba{
   text-align: center;
   font-size: 60px;
-  background: linear-gradient(#f2f2f2, #D9D9D9);
+
 }
-main {
-  background: linear-gradient(#D9D9D9, #A6A6A6);
-  height: 50%;
-}
+
 
 h1{
   padding-top: 60px;
@@ -71,7 +72,7 @@ h1{
 }
 .sectionsecundaria{
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 45px;
   width: 400px;
   background-color:#8C8C8C;
   box-shadow: 10px 10px 30px 15px #000;
@@ -98,12 +99,15 @@ h1{
 }
 .cuadroinputsnotas{
   width: 50%;
+  height: 20px;
   border-radius: 5px;
   outline: none;
+  margin-bottom: 5px;
   
 }
 .InputPromedio{
   width: 20%;
+  height: 20px;
   border-radius: 5px;
   outline: none;
   margin-left: 30px;
@@ -128,23 +132,26 @@ h1{
   background-color: #3d7f37;
 }
 
-footer{
-
-  background: linear-gradient(#A6A6A6, #262626);
-  
-}
 @media screen and (max-width:480px) {
+  body{
+    min-height: 104vh;
+  }
   h1{ 
-      text-align: center;
-      position: static;
+    text-align: center;
+    position: static;
 
   }
-  .arriba,.container,.sectionprincipal,.seccionNotas{
-      width: auto;
-  }
   
-  footer{
-    height: 100px;
+  .arriba,.sectionprincipal,.seccionNotas{
+    width: auto;
+  }
+  .sectionprincipal{
+    margin-left: 10px;
+  }
+
+  .sectionsecundaria{
+    margin-left: 10px;
+    margin-right: 10px;
   }
   
 }
