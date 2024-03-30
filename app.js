@@ -112,7 +112,7 @@ function generaretiqueta(control,numNota){
 function generarInputs(control, numNota){
     if (control==1) {
         var ingreso= document.createElement("input");
-        ingreso.type="text";
+        ingreso.type="number";
         ingreso.id= "nota"+numNota;
         ingreso.onchange = calcularPromedio;
         ingreso.className="cuadroinputsnotas"
@@ -120,7 +120,7 @@ function generarInputs(control, numNota){
     }
     else{
         var ingreso= document.createElement("input");
-        ingreso.type="text";
+        ingreso.type="number";
         
         ingreso.oninput = calcularPromedio;
         ingreso.className="InputPromedio";
