@@ -11,25 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
 let titulo = document.querySelector('h1');
 titulo.innerHTML= 'Calcular promedio';
 
-// function mensajeConsola() {
-//     console.log('Boton Console fue clickeado')
-    
-// }
-
-// function mensajePrompt() {
-//     var ciudad= prompt("ingresa el nombre de una ciudad en chile:");
-//     alert(`estuve en ${ciudad} y me acordé de ti`);
-    
-// }
-// function mensajeAlerta() {
-//     alert("Yo amo JS");
-// }
-
-// function mensajeSuma() {
-//     var num1= prompt("ingresa el primer numero:");
-//     var num2= prompt("ingresa el segundo numero:");
-//     alert(`la suma es: ${parseInt(num1)+parseInt(num2)}`)
-// }
 
 function limpiarPromedio() {
     var etiquetaContainer = document.getElementById("promedioContainer");
@@ -178,9 +159,18 @@ function calcularPromedio() {
 
   function mostrarPromedio(promedio) {
     var promedioContainer = document.getElementById("promedioContainer");
-    if (promedio>49.6) {
+    if (promedio>39.6) {
         promedioContainer.style.color = "green";
         promedioContainer.textContent = `Promedio: ${promedio}`;
     }
-    promedioContainer.textContent = `Promedio: ${promedio}`;
+    else if(promedio<39.6 & promedio>0 ){
+        promedioContainer.style.color = "red";
+        promedioContainer.textContent = `Promedio: ${promedio}`;
+    }
+    else{
+        promedioContainer.style.color = "black";
+        promedioContainer.textContent = `Promedio: ${promedio}`;
+    }
+
+    
   }
