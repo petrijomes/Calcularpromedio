@@ -97,7 +97,6 @@ function generarInputs(control, numNota){
         ingreso.id= "nota"+numNota;
         ingreso.onchange = calcularPromedio;
         ingreso.className="cuadroinputsnotas";
-        ingreso.maxLength= 2;
         return ingreso;
     }
     else{
@@ -160,11 +159,11 @@ function calcularPromedio() {
 
   function mostrarPromedio(promedio) {
     var promedioContainer = document.getElementById("promedioContainer");
-    if (promedio>=39.6) {
+    if (promedio>=39.60) {
         promedioContainer.style.color = "green";
         promedioContainer.textContent = `Promedio: ${promedio}`;
     }
-    else if(promedio<39.6 & promedio>0 ){
+    else if(promedio<39.60 & promedio>0 ){
         promedioContainer.style.color = "red";
         promedioContainer.textContent = `Promedio: ${promedio}`;
     }
