@@ -159,7 +159,7 @@ function calcularPromedio() {
 
   function mostrarPromedio(promedio) {
     var promedioContainer = document.getElementById("promedioContainer");
-    if (promedio>39.6) {
+    if (promedio>=39.6) {
         promedioContainer.style.color = "green";
         promedioContainer.textContent = `Promedio: ${promedio}`;
     }
