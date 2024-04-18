@@ -96,7 +96,8 @@ function generarInputs(control, numNota){
         ingreso.type="number";
         ingreso.id= "nota"+numNota;
         ingreso.onchange = calcularPromedio;
-        ingreso.className="cuadroinputsnotas"
+        ingreso.className="cuadroinputsnotas";
+        ingreso.maxLength= 2;
         return ingreso;
     }
     else{
